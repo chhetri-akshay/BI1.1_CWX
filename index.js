@@ -2,6 +2,14 @@ const express = require("express")
 const app = express()
 const { initializeDatabase } = require("./db/db.connect")
 const Restaurant = require("./models/restaurant.models")
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json())
 initializeDatabase()
